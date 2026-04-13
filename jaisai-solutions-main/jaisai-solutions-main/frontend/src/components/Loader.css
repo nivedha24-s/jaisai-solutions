@@ -1,0 +1,115 @@
+.loader-overlay {
+  position: fixed;
+  inset: 0;
+  background: #000;
+  z-index: 99999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.loader-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+  position: relative;
+  z-index: 2;
+}
+
+.loader-logo {
+  animation: float 2s ease-in-out infinite;
+}
+
+.loader-ring {
+  animation: ringFill 2s ease-out forwards;
+  transform-origin: center;
+  transform: rotate(-90deg);
+}
+
+@keyframes ringFill {
+  from { stroke-dashoffset: 283; }
+  to { stroke-dashoffset: 0; }
+}
+
+.loader-brand {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2px;
+}
+
+.loader-brand-text {
+  font-family: 'Orbitron', sans-serif;
+  font-size: 2rem;
+  font-weight: 800;
+  color: #FFD700;
+  letter-spacing: 8px;
+  text-shadow: 0 0 30px rgba(255, 215, 0, 0.7);
+}
+
+.loader-brand-sub {
+  font-family: 'Rajdhani', sans-serif;
+  font-size: 0.9rem;
+  color: rgba(255, 215, 0, 0.6);
+  letter-spacing: 10px;
+}
+
+.loader-progress-container {
+  width: 280px;
+  height: 2px;
+  background: rgba(255, 215, 0, 0.15);
+  border-radius: 2px;
+  overflow: hidden;
+  margin-top: 8px;
+}
+
+.loader-progress-bar {
+  height: 100%;
+  background: linear-gradient(90deg, #B8860B, #FFD700, #FFF176);
+  border-radius: 2px;
+  transition: width 0.1s linear;
+  box-shadow: 0 0 10px rgba(255, 215, 0, 0.7);
+}
+
+.loader-status {
+  font-family: 'Rajdhani', sans-serif;
+  font-size: 0.75rem;
+  color: rgba(255, 215, 0, 0.5);
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+
+.loader-percentage {
+  font-family: 'Orbitron', sans-serif;
+  font-size: 0.8rem;
+  color: #FFD700;
+  opacity: 0.7;
+}
+
+/* Scanning lines */
+.scan-line {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, rgba(255, 215, 0, 0.3), transparent);
+  animation: scanDown 3s linear infinite;
+}
+
+.scan-line-2 {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(255, 215, 0, 0.1), transparent);
+  animation: scanDown 4s linear infinite reverse;
+}
+
+@keyframes scanDown {
+  0% { top: 0; }
+  100% { top: 100%; }
+}

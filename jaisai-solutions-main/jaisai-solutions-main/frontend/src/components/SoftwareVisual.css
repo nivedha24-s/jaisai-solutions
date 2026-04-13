@@ -1,0 +1,247 @@
+.software-scene {
+  position: relative;
+  width: 100%;
+  height: 500px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 5;
+}
+
+.main-frame {
+  position: relative;
+  width: 480px;
+  background: rgba(10, 10, 10, 0.8);
+  border: 1px solid rgba(255, 215, 0, 0.2);
+  border-radius: 8px;
+  padding: 4px;
+  box-shadow: 0 30px 60px rgba(0, 0, 0, 0.5);
+  transition: transform 0.1s ease-out;
+  transform-style: preserve-3d;
+}
+
+/* Glassmorphism Frame */
+.frame-border {
+  background: linear-gradient(135deg, rgba(255, 215, 0, 0.05), transparent);
+  border-radius: 6px;
+  padding: 16px;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.frame-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-bottom: 8px;
+  border-bottom: 1px solid rgba(255, 215, 0, 0.1);
+}
+
+.status-indicator {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-family: 'Orbitron', sans-serif;
+  font-size: 0.65rem;
+  color: var(--text-bright);
+  letter-spacing: 1px;
+}
+
+.dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #FFD700;
+}
+
+.pulse {
+  animation: pulse 2s infinite;
+}
+
+.header-meta {
+  font-size: 0.55rem;
+  color: rgba(255, 215, 0, 0.5);
+  font-weight: 700;
+}
+
+/* Image Area */
+.image-wrap {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16/10;
+  background: #000;
+  border-radius: 4px;
+  overflow: hidden;
+  border: 1px solid rgba(255, 215, 0, 0.1);
+}
+
+.dashboard-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0.8;
+}
+
+.scan-line {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, rgba(255, 215, 0, 0.4), transparent);
+  animation: scan 4s linear infinite;
+}
+
+.noise-overlay {
+  position: absolute;
+  inset: 0;
+  background: url("https://grainy-gradients.vercel.app/noise.svg");
+  opacity: 0.05;
+  pointer-events: none;
+}
+
+/* Stats Area */
+.frame-footer {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.footer-bar {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.bar-label {
+  width: 70px;
+  font-size: 0.6rem;
+  color: rgba(255, 255, 255, 0.5);
+  font-weight: 700;
+  letter-spacing: 1px;
+}
+
+.bar-track {
+  flex: 1;
+  height: 4px;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 2px;
+  overflow: hidden;
+}
+
+.bar-fill {
+  height: 100%;
+  background: #FFD700;
+  box-shadow: 0 0 10px rgba(255, 215, 0, 0.5);
+}
+
+.bar-val {
+  font-family: 'Orbitron', sans-serif;
+  font-size: 0.65rem;
+  color: #FFD700;
+  width: 30px;
+}
+
+/* HUD Badges */
+.hud-element {
+  position: absolute;
+  background: rgba(20, 20, 20, 0.9);
+  border: 1px solid rgba(255, 215, 0, 0.3);
+  padding: 10px 14px;
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  backdrop-filter: blur(10px);
+  z-index: 10;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.4);
+}
+
+.hud-icon {
+  width: 24px;
+  height: 24px;
+  color: #FFD700;
+}
+
+.hud-info {
+  display: flex;
+  flex-direction: column;
+}
+
+.hud-val {
+  font-family: 'Orbitron', sans-serif;
+  font-size: 0.9rem;
+  font-weight: 900;
+  color: #FFD700;
+  line-height: 1;
+}
+
+.hud-tag {
+  font-size: 0.5rem;
+  color: rgba(255, 255, 255, 0.4);
+  font-weight: 700;
+  letter-spacing: 1px;
+}
+
+.models-badge {
+  top: -20px;
+  right: -40px;
+}
+
+.accuracy-badge {
+  bottom: 60px;
+  right: -60px;
+}
+
+.uptime-badge {
+  bottom: -15px;
+  left: -30px;
+}
+
+/* Floating Tags */
+.floating-tags {
+  position: absolute;
+  bottom: 20px;
+  left: 20px;
+  display: flex;
+  gap: 8px;
+  transform: translateZ(20px);
+}
+
+.tag-item {
+  background: rgba(255, 215, 0, 0.1);
+  border: 1px solid rgba(255, 215, 0, 0.2);
+  padding: 4px 8px;
+  border-radius: 2px;
+  font-weight: 700;
+  font-size: 0.55rem;
+  color: #FFD700;
+  letter-spacing: 1px;
+}
+
+.scene-glow {
+  position: absolute;
+  width: 400px;
+  height: 400px;
+  background: radial-gradient(circle, rgba(255, 215, 0, 0.05), transparent 70%);
+  pointer-events: none;
+}
+
+/* Animations */
+@keyframes pulse {
+  0%, 100% { opacity: 0.3; }
+  50% { opacity: 1; }
+}
+
+@keyframes scan {
+  from { top: -10%; }
+  to { top: 110%; }
+}
+
+@media (max-width: 768px) {
+  .software-scene { height: 400px; }
+  .main-frame { width: 300px; }
+  .hud-element { display: none; }
+}
