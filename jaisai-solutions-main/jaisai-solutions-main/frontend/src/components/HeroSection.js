@@ -8,22 +8,26 @@ const HeroSection = () => {
   const [parallaxLayers, setParallaxLayers] = useState({ slow: {x:0,y:0}, mid: {x:0,y:0}, fast: {x:0,y:0} });
 
   useEffect(() => {
+    if (window.innerWidth < 768) return; // skip on mobile — no mouse
+    let ticking = false;
     const handleMouseMove = (e) => {
-      const cx = window.innerWidth / 2;
-      const cy = window.innerHeight / 2;
-      const rx = (e.clientX - cx) / cx;   // -1 to 1
-      const ry = (e.clientY - cy) / cy;
-
-      setMousePos({ x: rx * 20, y: ry * 20 });
-
-      setParallaxLayers({
-        slow: { x: rx * 12, y: ry * 12 },
-        mid:  { x: rx * 24, y: ry * 24 },
-        fast: { x: rx * 40, y: ry * 40 }
+      if (ticking) return;
+      ticking = true;
+      requestAnimationFrame(() => {
+        const cx = window.innerWidth / 2;
+        const cy = window.innerHeight / 2;
+        const rx = (e.clientX - cx) / cx;
+        const ry = (e.clientY - cy) / cy;
+        setMousePos({ x: rx * 20, y: ry * 20 });
+        setParallaxLayers({
+          slow: { x: rx * 12, y: ry * 12 },
+          mid:  { x: rx * 24, y: ry * 24 },
+          fast: { x: rx * 40, y: ry * 40 }
+        });
+        ticking = false;
       });
     };
-
-    window.addEventListener('mousemove', handleMouseMove);
+    window.addEventListener('mousemove', handleMouseMove, { passive: true });
     return () => window.removeEventListener('mousemove', handleMouseMove);
   }, []);
 
