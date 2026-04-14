@@ -1,0 +1,331 @@
+/* ============================================
+   AI ROBOT — Full parallax 3D scene
+   ============================================ */
+
+.robot-scene {
+  position: relative;
+  width: 440px;
+  height: 540px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.08s ease-out;
+  transform-style: preserve-3d;
+}
+
+/* ── PLATFORM ── */
+.robot-platform {
+  position: absolute;
+  bottom: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 220px;
+  height: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.platform-ring {
+  position: absolute;
+  border-radius: 50%;
+  border: 1px solid rgba(255, 215, 0, 0.25);
+  transform: rotateX(75deg);
+  animation: platformPulse 3s ease-in-out infinite;
+}
+
+.p-ring-1 {
+  width: 160px;
+  height: 160px;
+  border-color: rgba(255, 215, 0, 0.4);
+  animation-delay: 0s;
+  box-shadow: 0 0 20px rgba(255, 215, 0, 0.1);
+}
+
+.p-ring-2 {
+  width: 220px;
+  height: 220px;
+  border-color: rgba(255, 215, 0, 0.2);
+  animation-delay: 0.5s;
+}
+
+.p-ring-3 {
+  width: 300px;
+  height: 300px;
+  border-color: rgba(255, 215, 0, 0.1);
+  animation-delay: 1s;
+}
+
+@keyframes platformPulse {
+  0%, 100% { opacity: 0.4; }
+  50% { opacity: 1; }
+}
+
+.platform-glow {
+  position: absolute;
+  width: 140px;
+  height: 20px;
+  background: radial-gradient(ellipse, rgba(255, 215, 0, 0.3), transparent);
+  border-radius: 50%;
+  filter: blur(8px);
+  animation: platformPulse 2s ease-in-out infinite;
+}
+
+/* ── ROBOT BODY WRAP ── */
+.robot-body-wrap {
+  position: relative;
+  width: 280px;
+  animation: robotFloat 4s ease-in-out infinite;
+  filter: drop-shadow(0 20px 40px rgba(255, 215, 0, 0.15))
+          drop-shadow(0 0 80px rgba(255, 215, 0, 0.08));
+}
+
+@keyframes robotFloat {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-14px); }
+}
+
+.robot-svg {
+  width: 100%;
+  height: auto;
+}
+
+/* ── SCAN LINE ── */
+.robot-scan-line {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, transparent, rgba(255, 215, 0, 0.6), transparent);
+  animation: robotScan 3s linear infinite;
+  pointer-events: none;
+  border-radius: 2px;
+}
+
+@keyframes robotScan {
+  0% { top: 0%; opacity: 0; }
+  5% { opacity: 1; }
+  95% { opacity: 1; }
+  100% { top: 100%; opacity: 0; }
+}
+
+/* ── HOLOGRAPHIC DATA PANELS ── */
+.holo-data-left,
+.holo-data-right {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.holo-data-left {
+  left: -12px;
+  align-items: flex-end;
+}
+
+.holo-data-right {
+  right: -12px;
+  align-items: flex-start;
+}
+
+.holo-data-item {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  background: rgba(0, 0, 0, 0.7);
+  border: 1px solid rgba(255, 215, 0, 0.2);
+  padding: 6px 10px;
+  min-width: 80px;
+  animation: fadeInUp 0.5s ease both;
+  position: relative;
+  overflow: hidden;
+}
+
+.holo-data-item::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(255, 215, 0, 0.5), transparent);
+}
+
+.holo-label {
+  font-family: 'Rajdhani', sans-serif;
+  font-size: 0.55rem;
+  color: rgba(255, 215, 0, 0.5);
+  letter-spacing: 2px;
+}
+
+.holo-val {
+  font-family: 'Orbitron', sans-serif;
+  font-size: 0.7rem;
+  font-weight: 700;
+  color: #FFD700;
+  text-shadow: 0 0 8px rgba(255, 215, 0, 0.5);
+}
+
+.holo-progress {
+  width: 100%;
+  height: 2px;
+  background: rgba(255, 215, 0, 0.1);
+  border-radius: 1px;
+  overflow: hidden;
+}
+
+.holo-prog-fill {
+  height: 100%;
+  background: linear-gradient(90deg, #B8860B, #FFD700);
+  border-radius: 1px;
+  box-shadow: 0 0 6px rgba(255, 215, 0, 0.6);
+  animation: progressGlow 2s ease-in-out infinite;
+}
+
+@keyframes progressGlow {
+  0%, 100% { box-shadow: 0 0 4px rgba(255,215,0,0.4); }
+  50% { box-shadow: 0 0 12px rgba(255,215,0,0.9); }
+}
+
+.holo-status {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #FFD700;
+  box-shadow: 0 0 8px rgba(255, 215, 0, 0.8);
+  animation: statusBlink 1.5s ease-in-out infinite;
+}
+
+.holo-status.active {
+  background: #22c55e;
+  box-shadow: 0 0 8px rgba(34, 197, 94, 0.8);
+}
+
+@keyframes statusBlink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.3; }
+}
+
+/* ── ORBIT SYSTEM ── */
+.orbit-system {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+.orbit {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border-radius: 50%;
+  border: 1px dashed rgba(255, 215, 0, 0.1);
+}
+
+.orbit-1 {
+  width: 360px;
+  height: 360px;
+  animation: orbitRotate 12s linear infinite;
+}
+
+.orbit-2 {
+  width: 440px;
+  height: 440px;
+  animation: orbitRotate 18s linear infinite reverse;
+}
+
+.orbit-3 {
+  width: 520px;
+  height: 520px;
+  animation: orbitRotate 24s linear infinite;
+}
+
+@keyframes orbitRotate {
+  from { transform: translate(-50%, -50%) rotate(0deg); }
+  to { transform: translate(-50%, -50%) rotate(360deg); }
+}
+
+.orbit-node {
+  position: absolute;
+  top: -16px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: rgba(0, 0, 0, 0.85);
+  border: 1px solid rgba(255, 215, 0, 0.5);
+  color: #FFD700;
+  font-family: 'Orbitron', sans-serif;
+  font-size: 0.55rem;
+  font-weight: 700;
+  padding: 5px 8px;
+  letter-spacing: 1px;
+  white-space: nowrap;
+  box-shadow: 0 0 12px rgba(255, 215, 0, 0.2);
+  clip-path: polygon(4px 0%, 100% 0%, calc(100% - 4px) 100%, 0% 100%);
+}
+
+/* Counter-rotate nodes so they stay upright */
+.orbit-1 .orbit-node {
+  animation: counterRotate 12s linear infinite;
+}
+
+.orbit-2 .orbit-node {
+  animation: counterRotate 18s linear infinite reverse;
+}
+
+.orbit-3 .orbit-node {
+  animation: counterRotate 24s linear infinite;
+}
+
+@keyframes counterRotate {
+  from { transform: translateX(-50%) rotate(0deg); }
+  to { transform: translateX(-50%) rotate(-360deg); }
+}
+
+/* Responsive */
+@media (max-width: 1200px) {
+  .robot-scene { width: 360px; height: 460px; }
+  .robot-body-wrap { width: 230px; }
+  .orbit-1 { width: 300px; height: 300px; }
+  .orbit-2 { width: 370px; height: 370px; }
+  .orbit-3 { width: 440px; height: 440px; }
+  .holo-data-left, .holo-data-right { display: none; }
+}
+
+@media (max-width: 768px) {
+  .robot-scene {
+    width: 320px;
+    height: 400px;
+  }
+  .robot-body-wrap { width: 200px; }
+  .orbit-1 { width: 240px; height: 240px; }
+  .orbit-2 { width: 300px; height: 300px; }
+  .orbit-3 { width: 360px; height: 360px; }
+  .holo-data-left, .holo-data-right { display: none; }
+  .robot-tag { font-size: 0.5rem; padding: 3px 8px; }
+}
+
+@media (max-width: 600px) {
+  .robot-scene {
+    width: 280px;
+    height: 340px;
+  }
+  .robot-body-wrap { width: 170px; }
+  .orbit-1 { width: 200px; height: 200px; }
+  .orbit-2 { width: 250px; height: 250px; }
+  .orbit-3 { width: 300px; height: 300px; }
+  .robot-tag { display: none; }
+  .p-ring-3 { display: none; }
+}
+
+/* ── Performance: GPU acceleration ── */
+.robot-scene,
+.robot-body-wrap,
+.robot-scan-line,
+.platform-ring,
+.robot-orbit {
+  will-change: transform;
+  transform: translateZ(0);
+}

@@ -1,0 +1,79 @@
+========================================
+  JAI SAI SOLUTIONS - SETUP GUIDE
+========================================
+
+STEP 1: DATABASE (XAMPP)
+-------------------------
+1. Open XAMPP Control Panel
+2. Start Apache & MySQL
+3. Open browser → http://localhost/phpmyadmin
+4. Click "New" → Create database named: jaisai_solutions
+5. Click "Import" → Choose file: database/jaisai_db.sql
+6. Click "Go" ✅
+
+STEP 2: BACKEND (Node.js)
+--------------------------
+Open Terminal/Command Prompt:
+
+  cd jaisai-solutions/backend
+  npm install
+  npm run dev
+
+Backend runs at: http://localhost:5000
+Test: http://localhost:5000/api/health
+
+STEP 3: FRONTEND (React.js)
+-----------------------------
+Open NEW Terminal:
+
+  cd jaisai-solutions/frontend
+  npm install
+  npm start
+
+Frontend runs at: http://localhost:3000
+
+========================================
+  API ENDPOINTS
+========================================
+GET  /api/health         → Check server
+POST /api/contact        → Submit contact form
+GET  /api/contact        → View all inquiries
+GET  /api/services       → Get all services
+GET  /api/stats          → Get statistics
+POST /api/newsletter     → Subscribe email
+
+========================================
+  FOLDER STRUCTURE
+========================================
+jaisai-solutions/
+├── database/
+│   └── jaisai_db.sql        ← Import to XAMPP
+├── backend/
+│   ├── src/
+│   │   ├── server.js        ← Main server
+│   │   ├── db.js            ← DB connection
+│   │   └── routes/          ← API routes
+│   ├── .env                 ← Config (edit DB password if needed)
+│   └── package.json
+└── frontend/
+    ├── src/
+    │   ├── App.js
+    │   ├── components/      ← All UI components
+    │   └── index.css
+    └── package.json
+
+========================================
+  FEATURES
+========================================
+✅ Parallax scrolling effects
+✅ 3D card hover effects (perspective transform)
+✅ Animated particle background (canvas)
+✅ Animated loading screen
+✅ Count-up animations on stats
+✅ Mouse-responsive 3D brain visual
+✅ Glowing gold UI theme
+✅ Smooth scroll navigation
+✅ Contact form → MySQL database
+✅ Responsive mobile design
+✅ Intersection observer animations
+========================================

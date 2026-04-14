@@ -1,0 +1,519 @@
+/* ============================================================
+   WHY CHOOSE US — Premium Gold Dark Theme
+   ============================================================ */
+
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Rajdhani:wght@400;600;700&display=swap');
+
+/* ══════════════════
+   SECTION WRAPPER
+══════════════════ */
+.wcu-section {
+  position: relative;
+  padding: 120px 0 100px;
+  background: #050505;
+  overflow: hidden;
+  z-index: 1;
+}
+
+/* ══════════════════
+   GRID BACKGROUND
+══════════════════ */
+.wcu-grid-bg {
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(255,215,0,0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,215,0,0.04) 1px, transparent 1px);
+  background-size: 60px 60px;
+  mask-image: radial-gradient(ellipse 80% 80% at 50% 50%, black 30%, transparent 100%);
+  -webkit-mask-image: radial-gradient(ellipse 80% 80% at 50% 50%, black 30%, transparent 100%);
+  pointer-events: none;
+}
+
+/* ══════════════════
+   PARALLAX ORB GLOWS
+══════════════════ */
+.wcu-orb {
+  position: absolute;
+  border-radius: 50%;
+  pointer-events: none;
+  filter: blur(80px);
+  transition: transform 0.18s ease-out;
+}
+.wcu-orb-1 {
+  width: 500px; height: 500px;
+  top: -120px; left: -100px;
+  background: radial-gradient(circle, rgba(255,215,0,0.08), transparent 65%);
+}
+.wcu-orb-2 {
+  width: 400px; height: 400px;
+  bottom: -80px; right: -80px;
+  background: radial-gradient(circle, rgba(255,215,0,0.07), transparent 65%);
+}
+.wcu-orb-3 {
+  width: 300px; height: 300px;
+  top: 50%; left: 50%;
+  transform: translate(-50%, -50%);
+  background: radial-gradient(circle, rgba(255,215,0,0.04), transparent 65%);
+}
+
+/* ══════════════════
+   SWEEP LINES
+══════════════════ */
+.wcu-sweep-lines {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background:
+    linear-gradient(135deg, rgba(255,215,0,0.03) 0%, transparent 50%),
+    linear-gradient(225deg, rgba(255,215,0,0.02) 0%, transparent 50%);
+}
+
+/* ══════════════════
+   HEADER
+══════════════════ */
+.wcu-header {
+  text-align: center;
+  margin-bottom: 70px;
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.7s ease, transform 0.7s ease;
+}
+.wcu-header.wcu-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Tag row */
+.wcu-tag-wrap {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  margin-bottom: 22px;
+}
+.wcu-tag-line {
+  width: 50px;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(255,215,0,0.5));
+}
+.wcu-tag-wrap .wcu-tag-line:last-child {
+  background: linear-gradient(90deg, rgba(255,215,0,0.5), transparent);
+}
+.wcu-tag {
+  font-family: 'Orbitron', monospace;
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 3px;
+  color: #FFD700;
+  background: rgba(255,215,0,0.06);
+  border: 1px solid rgba(255,215,0,0.2);
+  padding: 5px 18px;
+  clip-path: polygon(10px 0%, 100% 0%, calc(100% - 10px) 100%, 0% 100%);
+}
+
+/* Heading */
+.wcu-heading {
+  font-family: 'Orbitron', monospace;
+  font-size: clamp(2rem, 4vw, 3rem);
+  font-weight: 900;
+  color: rgba(255,255,255,0.82);
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  line-height: 1.15;
+  margin-bottom: 18px;
+}
+.wcu-gold {
+  color: #FFD700;
+  text-shadow:
+    0 0 30px rgba(255,215,0,0.5),
+    0 0 60px rgba(255,215,0,0.2);
+}
+
+.wcu-subheading {
+  font-family: 'Rajdhani', sans-serif;
+  font-size: 1.1rem;
+  color: rgba(255,255,255,0.80);
+  max-width: 540px;
+  margin: 0 auto 28px;
+  line-height: 1.7;
+  letter-spacing: 0.5px;
+}
+
+/* Deco underline */
+.wcu-title-deco {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0;
+}
+.wcu-deco-line {
+  width: 100px;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(255,215,0,0.5));
+}
+.wcu-title-deco .wcu-deco-line:last-child {
+  background: linear-gradient(90deg, rgba(255,215,0,0.5), transparent);
+}
+.wcu-deco-diamond {
+  width: 8px; height: 8px;
+  background: #FFD700;
+  transform: rotate(45deg);
+  box-shadow: 0 0 12px rgba(255,215,0,0.8);
+  flex-shrink: 0;
+}
+
+/* ══════════════════
+   CARDS GRID
+══════════════════ */
+.wcu-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 22px;
+  margin-bottom: 60px;
+}
+
+/* ══════════════════
+   INDIVIDUAL CARD
+══════════════════ */
+.wcu-card {
+  position: relative;
+  background: linear-gradient(135deg, rgba(255,215,0,0.04) 0%, rgba(10,10,10,0.95) 60%, rgba(255,215,0,0.02) 100%);
+  border: 1px solid rgba(255,215,0,0.12);
+  border-radius: 2px;
+  padding: 36px 28px 30px;
+  overflow: hidden;
+  cursor: pointer;
+  opacity: 0;
+  transform: translateY(40px);
+  transition:
+    opacity 0.6s ease,
+    transform 0.6s ease,
+    border-color 0.3s ease,
+    box-shadow 0.3s ease;
+}
+.wcu-card.wcu-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+.wcu-card:hover {
+  border-color: rgba(255,215,0,0.45);
+  box-shadow:
+    0 0 40px rgba(255,215,0,0.08),
+    0 20px 60px rgba(0,0,0,0.5),
+    inset 0 0 30px rgba(255,215,0,0.03);
+  transform: translateY(-8px);
+}
+
+/* Spotlight overlay */
+.wcu-spotlight {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  border-radius: inherit;
+  transition: opacity 0.3s ease;
+  z-index: 0;
+}
+
+/* Corner border animations */
+.wcu-border-tl,
+.wcu-border-br {
+  position: absolute;
+  width: 22px; height: 22px;
+  pointer-events: none;
+  z-index: 2;
+  transition: width 0.35s ease, height 0.35s ease, opacity 0.3s ease;
+  opacity: 0.5;
+}
+.wcu-border-tl {
+  top: 0; left: 0;
+  border-top: 2px solid #FFD700;
+  border-left: 2px solid #FFD700;
+}
+.wcu-border-br {
+  bottom: 0; right: 0;
+  border-bottom: 2px solid #FFD700;
+  border-right: 2px solid #FFD700;
+}
+.wcu-card:hover .wcu-border-tl,
+.wcu-card:hover .wcu-border-br {
+  width: 42px; height: 42px;
+  opacity: 1;
+}
+
+/* Top accent line */
+.wcu-accent-line {
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, transparent 0%, #FFD700 50%, transparent 100%);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  z-index: 2;
+}
+.wcu-card:hover .wcu-accent-line {
+  opacity: 1;
+  box-shadow: 0 0 12px rgba(255,215,0,0.6);
+}
+
+/* Card number */
+.wcu-number {
+  position: absolute;
+  top: 16px; right: 18px;
+  font-family: 'Orbitron', monospace;
+  font-size: 1.8rem;
+  font-weight: 900;
+  color: rgba(255,215,0,0.06);
+  letter-spacing: 2px;
+  line-height: 1;
+  transition: color 0.3s ease;
+  z-index: 1;
+  pointer-events: none;
+}
+.wcu-card:hover .wcu-number {
+  color: rgba(255,215,0,0.14);
+}
+
+/* ── ICON WITH HEX BACKDROP ── */
+.wcu-icon-wrap {
+  position: relative;
+  width: 78px; height: 78px;
+  margin-bottom: 18px;
+  z-index: 1;
+}
+.wcu-hex-bg {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  animation: hexSpin 20s linear infinite;
+  filter: drop-shadow(0 0 8px rgba(255,215,0,0.2));
+}
+.wcu-hex-bg svg { width: 100%; height: 100%; }
+@keyframes hexSpin {
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(360deg); }
+}
+.wcu-card:hover .wcu-hex-bg {
+  animation-duration: 5s;
+  filter: drop-shadow(0 0 16px rgba(255,215,0,0.5));
+}
+
+.wcu-icon-inner {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  filter: drop-shadow(0 0 10px rgba(255,215,0,0.4));
+  transition: filter 0.3s ease, transform 0.3s ease;
+}
+.wcu-icon-inner svg { width: 36px; height: 36px; }
+.wcu-card:hover .wcu-icon-inner {
+  filter: drop-shadow(0 0 20px rgba(255,215,0,0.8));
+  transform: scale(1.1);
+}
+
+/* ── STAT BADGE ── */
+.wcu-stat-badge {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 5px;
+  background: rgba(255,215,0,0.07);
+  border: 1px solid rgba(255,215,0,0.2);
+  border-radius: 2px;
+  padding: 4px 12px;
+  margin-bottom: 14px;
+  clip-path: polygon(6px 0%, 100% 0%, calc(100% - 6px) 100%, 0% 100%);
+  z-index: 1;
+  position: relative;
+  transition: background 0.3s ease;
+}
+.wcu-card:hover .wcu-stat-badge {
+  background: rgba(255,215,0,0.13);
+}
+.wcu-stat-val {
+  font-family: 'Orbitron', monospace;
+  font-size: 1rem;
+  font-weight: 900;
+  color: #FFD700;
+  text-shadow: 0 0 12px rgba(255,215,0,0.6);
+}
+.wcu-stat-lab {
+  font-family: 'Rajdhani', sans-serif;
+  font-size: 0.6rem;
+  font-weight: 600;
+  letter-spacing: 1px;
+  color: rgba(255,215,0,0.5);
+  text-transform: uppercase;
+}
+
+/* ── TEXT ── */
+.wcu-title {
+  font-family: 'Rajdhani', sans-serif;
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: rgba(255,255,255,0.82);
+  letter-spacing: 1px;
+  margin-bottom: 10px;
+  position: relative;
+  z-index: 1;
+  transition: color 0.3s ease;
+  text-transform: uppercase;
+}
+.wcu-card:hover .wcu-title {
+  color: #FFD700;
+  text-shadow: 0 0 20px rgba(255,215,0,0.3);
+}
+
+.wcu-desc {
+  font-family: 'Rajdhani', sans-serif;
+  font-size: 0.95rem;
+  color: rgba(255,255,255,0.80);
+  line-height: 1.7;
+  position: relative;
+  z-index: 1;
+  transition: color 0.3s ease;
+}
+.wcu-card:hover .wcu-desc {
+  color: rgba(255,255,255,0.80);
+}
+
+/* ── BOTTOM TAG ── */
+.wcu-bottom-tag {
+  position: absolute;
+  bottom: 12px; left: 18px;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  z-index: 2;
+}
+.wcu-card:hover .wcu-bottom-tag { opacity: 1; }
+.wcu-dot {
+  width: 4px; height: 4px;
+  border-radius: 50%;
+  background: #FFD700;
+  box-shadow: 0 0 6px rgba(255,215,0,0.8);
+  animation: blink 1.2s ease-in-out infinite;
+}
+.wcu-bottom-tag span {
+  font-family: 'Orbitron', monospace;
+  font-size: 0.4rem;
+  letter-spacing: 2px;
+  color: rgba(255,215,0,0.35);
+}
+
+@keyframes blink { 0%,100%{opacity:1} 50%{opacity:0.2} }
+
+/* ══════════════════
+   CTA STRIP
+══════════════════ */
+.wcu-cta-strip {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  background: linear-gradient(135deg, rgba(255,215,0,0.05), rgba(255,215,0,0.02));
+  border: 1px solid rgba(255,215,0,0.2);
+  border-radius: 2px;
+  padding: 28px 36px;
+  position: relative;
+  overflow: hidden;
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.7s ease, transform 0.7s ease;
+}
+.wcu-cta-strip::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, #FFD700, transparent);
+  box-shadow: 0 0 12px rgba(255,215,0,0.5);
+}
+.wcu-cta-strip.wcu-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.wcu-cta-left {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+}
+.wcu-cta-icon {
+  width: 44px; height: 44px;
+  flex-shrink: 0;
+  filter: drop-shadow(0 0 8px rgba(255,215,0,0.5));
+  animation: starSpin 6s linear infinite;
+}
+.wcu-cta-icon svg { width: 100%; height: 100%; }
+@keyframes starSpin { from { transform: rotate(0); } to { transform: rotate(360deg); } }
+
+.wcu-cta-heading {
+  font-family: 'Rajdhani', sans-serif;
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: rgba(255,255,255,0.82);
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+}
+.wcu-cta-sub {
+  font-family: 'Rajdhani', sans-serif;
+  font-size: 0.85rem;
+  color: rgba(255,215,0,0.45);
+  margin-top: 2px;
+  letter-spacing: 0.5px;
+}
+
+.wcu-cta-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  background: #FFD700;
+  color: #000;
+  font-family: 'Orbitron', monospace;
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  padding: 14px 28px;
+  clip-path: polygon(10px 0%, 100% 0%, calc(100% - 10px) 100%, 0% 100%);
+  text-decoration: none;
+  transition: all 0.3s ease;
+  white-space: nowrap;
+  flex-shrink: 0;
+  box-shadow: 0 0 30px rgba(255,215,0,0.3);
+}
+.wcu-cta-btn svg { width: 18px; height: 18px; transition: transform 0.3s ease; }
+.wcu-cta-btn:hover {
+  background: #FFF176;
+  box-shadow: 0 0 50px rgba(255,215,0,0.6), 0 8px 30px rgba(0,0,0,0.3);
+  transform: translateY(-2px);
+}
+.wcu-cta-btn:hover svg { transform: translateX(4px); }
+
+/* ══════════════════
+   RESPONSIVE
+══════════════════ */
+@media (max-width: 1024px) {
+  .wcu-grid { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (max-width: 640px) {
+  .wcu-section { padding: 80px 0 70px; }
+  .wcu-grid { grid-template-columns: 1fr; gap: 16px; }
+  .wcu-cta-strip { flex-direction: column; text-align: center; padding: 24px 20px; }
+  .wcu-cta-left { flex-direction: column; align-items: center; }
+  .wcu-heading { font-size: 1.6rem; }
+}
+
+/* ── Performance: GPU acceleration ── */
+.wcu-card,
+.wcu-hex-bg {
+  will-change: transform;
+  transform: translateZ(0);
+}

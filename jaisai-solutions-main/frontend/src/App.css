@@ -1,0 +1,10 @@
+.App {
+  position: relative;
+  min-height: 100vh;
+  background: #000;
+}
+
+main {
+  position: relative;
+  z-index: 1;
+}
