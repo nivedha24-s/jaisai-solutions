@@ -319,3 +319,13 @@
   .robot-tag { display: none; }
   .p-ring-3 { display: none; }
 }
+
+/* ── Performance: GPU acceleration ── */
+.robot-scene,
+.robot-body-wrap,
+.robot-scan-line,
+.platform-ring,
+.robot-orbit {
+  will-change: transform;
+  transform: translateZ(0);
+}
